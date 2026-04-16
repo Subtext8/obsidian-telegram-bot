@@ -16,6 +16,7 @@ def send_telegram_msg(chat_id, text):
 
 @app.route('/api', methods=['POST'])
 def webhook():
+    send_telegram_msg(MY_CHAT_ID, "Vercel is alive!")
     data = request.get_json()
     if not data or 'message' not in data:
         return "OK", 200
